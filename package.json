@@ -9,5 +9,8 @@
     "clean": "rm -rf public",
     "deploy": "cp -a client/build/. public/",
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+  },
+  "dependencies": {
+    "@auth0/auth0-react": "^1.10.2"
   }
 }
