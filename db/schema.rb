@@ -29,9 +29,15 @@ ActiveRecord::Schema.define(version: 2022_08_10_154041) do
     t.string "date"
     t.integer "episode_id"
     t.integer "round"
-    t.string "driver_standings"
-    t.string "constructor_standings"
-    t.string "results"
+    t.string "driver_standings_first"
+    t.string "driver_standings_second"
+    t.string "driver_standings_third"
+    t.string "constructor_standings_first"
+    t.string "constructor_standings_second"
+    t.string "constructor_standings_third"
+    t.string "results_first"
+    t.string "results_second"
+    t.string "results_third"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

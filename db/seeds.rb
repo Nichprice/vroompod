@@ -11,7 +11,6 @@ Race.destroy_all
 Review.destroy_all
 User.destroy_all
 
-puts "seeding episodes"
 episodes = [
         {
         insta_pic: "https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/webp.net-resizeimage.jpg?itok=yzNqakBK",
@@ -93,7 +92,6 @@ episodes = [
         }
     ]
 
-puts "seeding races"
 races = [
     {
         name: "Bahrain GP",
@@ -292,6 +290,7 @@ races = [
     }
 ]
 
+puts "seeding episodes"
 episodes.each do |o|
     Episode.create!(
         insta_pic: o[:insta_pic], 
@@ -300,16 +299,34 @@ episodes.each do |o|
         blurb: o[:blurb]
     )
 end
+puts "seeding episodes complete"
 
+puts "seeding races"
 races.each do |o|
-    Race.create!(
+    Race.create(
         name: o[:name],
         date: o[:date],
         episode_id: o[:episode_id],
         round: o[:round],
-        driver_standings: o[:driver_standings],
-        constructor_standings: o[:constructor_standings],
-        results: o[:results]
+        driver_standings_first: o[:driver_standings_first],
+        driver_standings_second: o[:driver_standings_second],
+        driver_standings_third: o[:driver_standings_third],
+        constructor_standings_first: o[:constructor_standings_first],
+        constructor_standings_second: o[:constructor_standings_second],
+        constructor_standings_third: o[:constructor_standings_third],
+        results_first: o[:results_first],
+        results_second: o[:results_second],
+        results_third: o[:results_third]
+    )
+end
+puts "seeding races complete"
+
+puts "seeding users"
+
+30.times do
+    User.create!(
+        username: Faker::Name.first_name,
+        password_digest: "1234"
     )
 end
 
@@ -326,12 +343,6 @@ end
 
 puts "seeding users"
 
-30.times do
-    User.create!(
-        username: Faker::Name.first_name,
-        password_digest: "1234"
-    )
-end
+
 
 puts "seeding complete"
-
