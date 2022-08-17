@@ -12,6 +12,8 @@ function EpisodePage() {
             .then((data) => setEpisode(data))
     })
 
+    console.log(episode)
+
     return (
         <img src={episode.insta_pic}/>
     )
