@@ -8,7 +8,7 @@ function EpisodeCard({ episode }) {
     let navigate = useNavigate();
 
     return(
-    <div onClick={() => navigate(`/episode/${episode.id}`)}>
+    <div onClick={() => navigate(`/episodes/${episode.id}`)}>
         <h2>{episode.name}</h2>
         <img src={episode.insta_pic}/>
         <p>{episode.blurb}</p>

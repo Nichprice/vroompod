@@ -4,17 +4,12 @@ import EpisodeCard from './EpisodeCard'
 function Episodes() {
 
     const [episodes, setEpisodes] = useState([])
-    const [epi, setEpi] = useState([])
 
     useEffect(() => {
         fetch("/episodes")
             .then((r) => r.json())
             .then((data) => setEpisodes(data))
         }, []);
-
-    function renderEpi(clicked) {
-        return setEpi(clicked)
-    }
     
     
     return (
@@ -22,7 +17,7 @@ function Episodes() {
             This is the episodes page.
             <div className='episode-card'>
             {episodes.map((episode) =>
-            <EpisodeCard key={episode.id} episode={episode} renderEpi={renderEpi}/>
+            <EpisodeCard key={episode.id} episode={episode}/>
             )}
             </div>
         </div>
