@@ -10,7 +10,8 @@ function Episodes() {
             .then((r) => r.json())
             .then((data) => setEpisodes(data))
         }, []);
-    
+
+    console.log(episodes)
     
     return (
         <div>
@@ -22,7 +23,6 @@ function Episodes() {
             </div>
         </div>
     )
-
 }
 
 export default Episodes;

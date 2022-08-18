@@ -214,7 +214,7 @@ races = [
         results_third: "George Russell"
     },
     {
-        name: "Canadian GP",
+        name: "Candaian GP",
         date: "06/19",
         episode_id: 9,
         round: 9,

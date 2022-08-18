@@ -6,7 +6,7 @@ before_action :find_episode, only: :show
     end
 
     def show
-        render json: @episode
+        render json: @episode, serializer: EpisodeReviewsSerializer
     end
 
     private

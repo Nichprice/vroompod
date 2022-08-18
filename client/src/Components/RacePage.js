@@ -10,7 +10,7 @@ function RacePage() {
         fetch(`/races/${id}`)
             .then((r) => r.json())
             .then((data) => setRace(data))
-    })
+    }, [])
 
     return (
     <div>
