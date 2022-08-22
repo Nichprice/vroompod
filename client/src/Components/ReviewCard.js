@@ -1,9 +1,13 @@
 import React from "react";
 
-function ReviewCard({review}) {
+function ReviewCard({review, handleDelete}) {
 
     return(
-        <p>{review.comment}</p>
+        <div>
+            <h3>User: {review.user?.username}</h3>
+            <p>{review.comment}</p>
+            <p onClick={() => handleDelete(review.id)}>X</p>
+        </div>
     )
 }
 
