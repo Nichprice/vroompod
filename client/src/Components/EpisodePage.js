@@ -61,6 +61,17 @@ function EpisodePage({myUser}) {
     })
   }
 
+  function handleUpdate(e) {
+    e.preventDefault()
+
+      fetch(`/reviews/${review.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({review.comment:edit})
+      })
+  }
 
 
   return (
