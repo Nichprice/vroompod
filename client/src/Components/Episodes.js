@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import EpisodeCard from './EpisodeCard'
+import '../Episodes.css'
 
 function Episodes() {
 
@@ -15,8 +16,7 @@ function Episodes() {
     
     return (
         <div>
-            This is the episodes page.
-            <div className='episode-card'>
+            <div className='row'>
             {episodes.map((episode) =>
             <EpisodeCard key={episode.id} episode={episode}/>
             )}

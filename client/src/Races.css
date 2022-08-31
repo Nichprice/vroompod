@@ -1,0 +1,24 @@
+.races {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.race-card {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: black;
+    border: 50px;
+    border-radius: 15px;
+    display: block;
+    color: white
+}
+
+.text {
+    margin-left: 20px
+}

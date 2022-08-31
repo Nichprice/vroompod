@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import RaceCard from './RaceCard';
+import "../Races.css"
 
 function Races() {
 
@@ -14,7 +15,7 @@ function Races() {
 
     return (
         <div>
-            <div className='race-card'>
+            <div className="races">
             {races.map((race) =>
             <RaceCard key={race.id} race={race}/>
             )}

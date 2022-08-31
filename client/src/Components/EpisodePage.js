@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ReviewCard from './ReviewCard'
 import ReviewForm from "./ReviewForm"
+import "../EpisodePage.css"
 
 function EpisodePage({myUser}) {
 
@@ -61,25 +62,31 @@ function EpisodePage({myUser}) {
     })
   }
 
-  function handleUpdate(e) {
-    e.preventDefault()
-
-      fetch(`/reviews/${review.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({review.comment:edit})
-      })
+  function onUpdateReview(updatedReview) {
+    const updatedReviews = reviews.map(review => {
+      if(review.id === updatedReview.id) {
+        return updatedReview
+      } else {
+        return review
+      }
+    }); 
+    setReviews(updatedReviews)
   }
 
-
   return (
-    <div>
-      <img src={episode.insta_pic}/>   
+    <div className="episode-div">
+        <img class="episode-thumbnail" src={episode.insta_pic}/> 
+      <div className="badges">
+        <a className="pod-link" href={episode.applepods}>
+          <img class="pod-badge" src="https://www.podcastinsights.com/wp-content/uploads/2019/05/apple-podcasts-badge-300.webp"/>  
+        </a>
+        <a className="pod-link" href={episode.spotify}>
+          <img class="pod-badge" src="https://www.podcastinsights.com/wp-content/uploads/2019/04/spotify-podcast-badge-blk-grn-330x80.webp"/>
+        </a>
+      </div>  
       <div>
         {reviews?.map((review) =>
-        <ReviewCard key={review.id} review={review} handleDelete={handleDelete}/>
+        <ReviewCard key={review.id} review={review} handleDelete={handleDelete} onUpdateReview={onUpdateReview}/>
         )}
       </div>
       <ReviewForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData} myUser={myUser}/>

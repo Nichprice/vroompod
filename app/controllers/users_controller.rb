@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :find_user, only: :show
+before_action :find_user, only: [:show, :user_reviews]
 require 'pry'
 
     def index
@@ -8,6 +8,10 @@ require 'pry'
 
     def show
         render json: @user
+    end
+
+    def user_reviews
+        render json: @user.reviews
     end
     
     def create

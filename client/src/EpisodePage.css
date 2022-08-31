@@ -1,0 +1,58 @@
+.episode-thumbnail {
+    height: 300px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    border-radius: 10px;
+}
+
+.hide{
+    display: none;
+}
+
+.review-card {
+    background: black;
+    border-radius: 15px;
+    display: block;
+    border: 30px solid black;
+    margin:50px;
+}
+
+.review-card-h {
+    color: white;
+}
+
+.review-card-p {
+    color: white;
+}
+
+.form {
+    display: block;
+}
+
+.pod-badge {
+    display: inline-block;
+    height: 50px;
+    width: 200px;
+}
+
+.badges {
+    padding: 10px;
+    text-align: center;
+}
+
+.review-buttons {
+    border-radius: 15px;
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    background: white;
+    color: black;
+}
+
+.review-buttons:hover {
+    background: black;
+    color: white;
+}

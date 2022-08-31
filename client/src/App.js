@@ -1,4 +1,4 @@
-import './App.css';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { useAuth0  } from '@auth0/auth0-react';
 import Episodes from './Components/Episodes';
@@ -7,8 +7,10 @@ import LogIn from './Components/LogIn';
 import LogoutButton from './Components/LogoutButton';
 import ErrorPage from './Components/ErrorPage';
 import EpisodePage from './Components/EpisodePage';
-import RacePage from './Components/RacePage'
-import { useState, useEffect } from 'react';
+import RacePage from './Components/RacePage';
+import User from './Components/User';
+import LinkedIn from './Components/LinkedIn';
+import './App.css'
 
 function App({postUser}) {
 
@@ -35,12 +37,15 @@ function App({postUser}) {
 
   return (
     <BrowserRouter> 
-      <nav> 
-      🏎💨
-        <Link to="/episodes"> Episodes </Link>
-        <Link to="/races"> Races </Link>
-        <Link to="/login"> {!isAuthenticated ? 'Log In' : 'Log Out'} </Link>
-         
+      <nav className='nav'>
+        <span className='nav-span'> 
+        <Link to="/" className='nav-links'>🏎💨</Link>
+        <Link to="/episodes" className='nav-links'> Episodes </Link>
+        <Link to="/races" className='nav-links'> Races </Link>
+        <Link to="/user" className='nav-links'> {isAuthenticated ? 'User' : ''} </Link>
+        <Link to="/login" className='nav-link-logger'> {!isAuthenticated ? 'Log In' : 'Log Out'} </Link>
+        </span>
+        <Link to="/nicks-linkedin" className='nav-links'>Nick's LinkedIn</Link>
       </nav>
       <Routes>
         <Route path="/episodes" element={<Episodes/>}/>
@@ -48,6 +53,8 @@ function App({postUser}) {
         <Route path="/races" element={<Races/>}/>
         <Route path="/races/:id" element={<RacePage/>}/>
         <Route path="/login" element={<LogIn/>}/>
+        <Route path="/user" element={<User myUser={myUser}/>}/>
+        <Route path="/nicks-linkedin" element={<LinkedIn/>}/>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes> 
     </BrowserRouter>
