@@ -15,7 +15,7 @@ import HomePage from './Components/HomePage';
 
 function App({postUser}) {
 
-  const {isAuthenticated} = useAuth0();
+  const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
   const { user } = useAuth0();
   const [myUser, setMyUser] = useState([])
 
@@ -36,6 +36,10 @@ function App({postUser}) {
         if (user) {postUser()}
     }, [user])
 
+    function loginSwitcher() {
+      !isAuthenticated ? loginWithRedirect() : logout()
+    }
+
   return (
     <BrowserRouter> 
       <nav className='nav'>
@@ -44,7 +48,9 @@ function App({postUser}) {
         <Link to="/episodes" className='nav-links'> Episodes </Link>
         <Link to="/races" className='nav-links'> Races </Link>
         <Link to="/user" className='nav-links'> {isAuthenticated ? 'User' : ''} </Link>
-        <Link to="/login" className='nav-link-logger'> {!isAuthenticated ? 'Log In' : 'Log Out'} </Link>
+        <Link to="/login" className='nav-link-logger' onClick= {() => loginSwitcher()}>
+          {!isAuthenticated ? 'Log In' : 'Log Out'} 
+        </Link>
         </span>
         {/* <Link to="/nicks-linkedin" className='nav-links'>Nick's LinkedIn</Link> */}
       </nav>
