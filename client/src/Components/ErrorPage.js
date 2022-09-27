@@ -5,7 +5,7 @@ function ErrorPage() {
 
     return (
         <div>
-            This is the home page! But.. it's also the "page not found" page. Vroom vroom.
+            Page Not Found
         </div>
     )
 }

@@ -11,6 +11,7 @@ import RacePage from './Components/RacePage';
 import User from './Components/User';
 import LinkedIn from './Components/LinkedIn';
 import './App.css'
+import HomePage from './Components/HomePage';
 
 function App({postUser}) {
 
@@ -39,15 +40,16 @@ function App({postUser}) {
     <BrowserRouter> 
       <nav className='nav'>
         <span className='nav-span'> 
-        <Link to="/" className='nav-links'>🏎💨</Link>
+        <Link to="" className='nav-links'>🏎💨</Link>
         <Link to="/episodes" className='nav-links'> Episodes </Link>
         <Link to="/races" className='nav-links'> Races </Link>
         <Link to="/user" className='nav-links'> {isAuthenticated ? 'User' : ''} </Link>
         <Link to="/login" className='nav-link-logger'> {!isAuthenticated ? 'Log In' : 'Log Out'} </Link>
         </span>
-        <Link to="/nicks-linkedin" className='nav-links'>Nick's LinkedIn</Link>
+        {/* <Link to="/nicks-linkedin" className='nav-links'>Nick's LinkedIn</Link> */}
       </nav>
       <Routes>
+        <Route path="" element={<HomePage/>}/>
         <Route path="/episodes" element={<Episodes/>}/>
         <Route path="/episodes/:id" element={<EpisodePage myUser={myUser}/>}/>
         <Route path="/races" element={<Races/>}/>

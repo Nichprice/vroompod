@@ -56,3 +56,22 @@
     background: black;
     color: white;
 }
+
+.textbox {
+    margin: auto;
+    width: 50%
+}
+
+.sumbit-div {
+    margin: auto;
+    width: 50%;
+}
+
+.sumbit-review {
+    padding: 50px;
+}
+
+textarea {
+    width: 393px;
+    height: 200px
+}

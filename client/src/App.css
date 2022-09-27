@@ -27,6 +27,14 @@
 }
 
 .linked {
-    padding: 50px;
+    padding: center;
     text-align: center;
+}
+
+
+.welcome {
+    text-align: center;
+    padding: 200px;
+    font-size: 80px
+
 }
